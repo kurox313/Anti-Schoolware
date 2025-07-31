@@ -24,7 +24,7 @@ echo [4] Install Zen-browser (winget)
 echo [5] System Cleanup
 echo [0] Exit
 echo.
-set /p choice="Enter your choice (0-4): "
+set /p choice="Enter your choice (0-5): "
 
 if "%choice%"=="1" goto COMPLETE_SECURITY
 if "%choice%"=="2" goto SCAN_MENU
