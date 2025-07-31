@@ -292,13 +292,13 @@ echo.
 pause
 goto SCAN_MENU
 
-:BLOXSTRAP_WINGET
+:FISHSTRAP_WINGET
 cls
 echo ===============================================
-echo         BLOXSTRAP INSTALLATION (WINGET)
+echo         FISHSTRAP INSTALLATION (WINGET)
 echo ===============================================
 echo.
-echo Installing Bloxstrap using Windows Package Manager (winget)...
+echo Installing FISHSTRAP using Windows Package Manager (winget)...
 echo This is the recommended installation method.
 echo.
 echo Checking if winget is available...
@@ -312,41 +312,41 @@ if %errorlevel% neq 0 (
 )
 
 echo ✓ Winget is available
-echo Installing Bloxstrap...
+echo Installing FISHSTRAP...
 echo.
-winget install bloxstrap
+winget install Fishstrap.fishstrap -e --accept-source-agreements --accept-package-agreements
 
 if %errorlevel% equ 0 (
     echo.
-    echo ✓ Bloxstrap installed successfully via winget!
-    echo You can now launch Bloxstrap from the Start Menu
+    echo ✓ Fishstrap installed successfully via winget!
+    echo You can now launch Fishstrap from the Start Menu
 ) else (
     echo.
-    echo ✗ Failed to install Bloxstrap via winget
+    echo ✗ Failed to install Fishstrap via winget
     echo You may want to try the direct download option (6)
 )
 echo.
 pause
 goto MAIN_MENU
 
-:BLOXSTRAP_DOWNLOAD
+:FISHSTRAP_DOWNLOAD
 cls
 echo ===============================================
-echo         BLOXSTRAP DIRECT DOWNLOAD
+echo         FISHSTRAP DIRECT DOWNLOAD
 echo ===============================================
 echo.
-echo Bloxstrap is an alternative bootstrapper for Roblox
+echo Fishstrap is an alternative bootstrapper for Roblox
 echo that provides additional features and customization options.
 echo.
-echo Downloading latest Bloxstrap from GitHub...
+echo Downloading latest Fishstrap from GitHub...
 echo.
-powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://github.com/pizzaboxer/bloxstrap/releases/latest/download/Bloxstrap.exe' -OutFile '%USERPROFILE%\Desktop\Bloxstrap.exe'}"
+powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://github.com/fishstrap/fishstrap/releases/download/v2.9.2.1/Fishstrap-v2.9.2.1.exe' -OutFile '%USERPROFILE%\Desktop\Bloxstrap.exe'}"
 
-if exist "%USERPROFILE%\Desktop\Bloxstrap.exe" (
-    echo ✓ Bloxstrap downloaded successfully to Desktop!
-    echo You can run it from: %USERPROFILE%\Desktop\Bloxstrap.exe
+if exist "%USERPROFILE%\Desktop\Fishstrap-v2.9.2.1.exe" (
+    echo ✓ Fishstrap downloaded successfully to Desktop!
+    echo You can run it from: %USERPROFILE%\Desktop\Fishstrap-v2.9.2.1.exe
 ) else (
-    echo ✗ Failed to download Bloxstrap
+    echo ✗ Failed to download Fishstrap
 )
 echo.
 pause
@@ -375,7 +375,7 @@ echo.
 
 :: Attempt to install Zen-browser
 echo Installing Zen-browser...
-winget install --id=Zen-Dev.Zen-Browser -e
+winget install Zen-Dev.ZenBrowser -e --accept-source-agreements --accept-package-agreements
 
 if %errorlevel% equ 0 (
     echo.
@@ -383,7 +383,7 @@ if %errorlevel% equ 0 (
 ) else (
     echo.
     echo ✗ Zen-browser installation failed.
-    echo Please check if the ID is correct or try manually.
+    echo Please check if the package ID is correct or try manually.
 )
 echo.
 pause
